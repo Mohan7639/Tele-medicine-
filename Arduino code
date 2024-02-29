@@ -1,0 +1,23 @@
+// Define the pin where the sensor is connected
+const int sensorPin = A0;
+
+void setup() {
+  // Initialize serial communication
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Read the voltage from the sensor
+  int sensorValue = analogRead(sensorPin);
+
+  // Convert the sensor value to temperature in Celsius
+  float temperatureC = (sensorValue * 5.0 / 1024.0) * 100.0;
+
+  // Print the temperature to the serial monitor
+  Serial.print("Temperature: ");
+  Serial.print(temperatureC);
+  Serial.println("°C");
+
+  // Delay for a moment
+  delay(1000);
+}
